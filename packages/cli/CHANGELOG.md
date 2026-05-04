@@ -1,5 +1,11 @@
 # @open-slide/cli
 
+## 1.0.5
+
+### Patch Changes
+
+- 968c487: Document branded fork guidance in the scaffolded workspace template.
+
 ## 1.0.4
 
 ### Patch Changes

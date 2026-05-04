@@ -1,5 +1,15 @@
 # @open-slide/core
 
+## 1.0.5
+
+### Patch Changes
+
+- ca53712: Add i18n support for the slide UI. Set `locale` in `OpenSlideConfig` using one of the presets (`en`, `zhTW`, `zhCN`, `ja`) from `@open-slide/core/locale`.
+- 2a23011: Inspector text edits now land in more places: descend into wrapper elements, fall through `{children}` slots to component call sites (e.g. `<Eyebrow>` → consumer), and disambiguate sibling text leaves via the pre-edit DOM value. Commit failures are surfaced via toast instead of silently swallowed, and failed edits stay buffered for retry.
+- 27d2900: Replace spinner with a hairline + sliding bar for slide and presenter loading states.
+- fa709d8: Polish sidebar folder UX: pick color/emoji while creating, success/error toasts on create/delete and slide drag-drop, right-aligned counts.
+- 2b4d0a8: Align sidebar theme toggle flush with the right column of folder counts.
+
 ## 1.0.4
 
 ### Patch Changes
