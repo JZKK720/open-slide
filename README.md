@@ -81,6 +81,14 @@ pnpm check    # type-checks all packages
 pnpm lint     # lints via biome
 ```
 
+## Run The Web Image Locally
+
+```bash
+docker run --rm -p 3000:3000 -e SITE_URL=http://localhost:3000 ghcr.io/jzkk720/open-slide-web:latest
+```
+
+That keeps the local container's metadata, sitemap, robots, and OG URLs pointed at `localhost` instead of a production domain.
+
 ## Support
 
 If open-slide has been useful to you, consider supporting development:
