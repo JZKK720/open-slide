@@ -84,7 +84,7 @@ pnpm lint     # lints via biome
 ## Run The Web Image Locally
 
 ```bash
-docker run --rm -p 3000:3000 -e SITE_URL=http://localhost:3000 ghcr.io/jzkk720/open-slide-web:latest
+docker run --rm -p 6831:6831 -e SITE_URL=http://localhost:6831 ghcr.io/jzkk720/open-slide-web:latest
 ```
 
 That keeps the local container's metadata, sitemap, robots, and OG URLs pointed at `localhost` instead of a production domain.

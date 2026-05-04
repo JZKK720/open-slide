@@ -7,7 +7,7 @@ function normalizeSiteUrl(value: string): string {
 function resolveSiteUrl(): string {
   const explicitSiteUrl = process.env.SITE_URL ?? process.env.NEXT_PUBLIC_SITE_URL;
   if (explicitSiteUrl) return normalizeSiteUrl(explicitSiteUrl);
-  return `http://localhost:${process.env.PORT ?? '3000'}`;
+  return `http://localhost:${process.env.PORT ?? '6831'}`;
 }
 
 export const brandName = 'CubeCloud';
