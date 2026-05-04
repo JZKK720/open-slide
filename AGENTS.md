@@ -17,6 +17,13 @@ pnpm + Turbo monorepo.
 
 Shared config: `biome.json`, `turbo.json`, `pnpm-workspace.yaml`, `tsconfig` per package.
 
+## Reference docs
+
+- Product positioning and repo-level workflow: [`README.md`](README.md)
+- Core runtime and CLI surface: [`packages/core/README.md`](packages/core/README.md)
+- Scaffolder behavior and generated workspace shape: [`packages/cli/README.md`](packages/cli/README.md)
+- Web app stack and docs site: [`apps/web/README.md`](apps/web/README.md)
+
 ## Workflow
 
 ```bash
@@ -29,6 +36,16 @@ pnpm test         # vitest
 ```
 
 Filter to one package: `pnpm core <script>` / `pnpm cli <script>`.
+
+## CubeCloud customization track
+
+- The current customization work starts in `apps/web`. Treat package names, CLI strings, npm package ids, and repo metadata as unchanged unless the user explicitly asks for a full rebrand.
+- Source logo art lives under `assets/cubecloud-logos/`. Treat that folder as the design source, not the served web path.
+- For web usage, prefer copying selected logo variants into `apps/web/public/brand/` with ASCII filenames before wiring them into the site.
+- Shared web branding surfaces are `apps/web/lib/shared.ts`, `apps/web/app/layout.tsx`, `apps/web/lib/layout.shared.tsx`, `apps/web/components/landing/nav.tsx`, and `apps/web/app/og/docs/[...slug]/route.tsx`.
+- Landing-specific palette, copy, and logo presentation live in `apps/web/app/(home)/landing.css` and `apps/web/components/landing/`.
+- `apps/web`-only branding changes do not need a changeset. If branding work expands into `packages/core` or `packages/cli`, add a changeset.
+- Before broad CubeCloud branding work, use the `cubecloud-installation` skill.
 
 ## Hard rules
 

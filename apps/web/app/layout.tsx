@@ -2,7 +2,7 @@ import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
-import { appName, gitConfig, siteUrl } from '@/lib/shared';
+import { appName, gitConfig, siteDescription, siteUrl } from '@/lib/shared';
 
 const geist = Geist({
   variable: '--font-geist-sans',
@@ -25,8 +25,7 @@ const instrument = Instrument_Serif({
 });
 
 const title = `${appName} — slides as React code, crafted by agents`;
-const description =
-  'A React-first slide framework authored by AI agents. Each page is arbitrary code on a 1920×1080 canvas — versioned, reviewable, yours.';
+const description = siteDescription;
 
 export const metadata: Metadata = {
   title: {
@@ -38,6 +37,7 @@ export const metadata: Metadata = {
   applicationName: appName,
   keywords: [
     'open-slide',
+    'cubecloud',
     'slides',
     'presentation framework',
     'React slides',
@@ -85,8 +85,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
+    icon: '/brand/cubecloud-mark.svg',
+    shortcut: '/brand/cubecloud-mark.svg',
+    apple: '/brand/cubecloud-mark.svg',
   },
 };
 

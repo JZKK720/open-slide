@@ -10,6 +10,12 @@ You are authoring **slides** in this repo. Every slide is arbitrary React code t
 - Do **not** touch `package.json`, `open-slide.config.ts`, or other slides.
 - Do not add dependencies. Use only `react` and standard web APIs.
 
+## Branded distributions
+
+- Some forks add extra branding or deployment guidance in the repo-local `AGENTS.md` or `.agents/skills/` files.
+- Follow that local guidance for copy, assets, and publishing, but keep `open-slide`, `@open-slide/core`, and the existing scripts unchanged unless the fork explicitly tells you to rename them.
+- Generated workspaces are slide-only. Do not assume the source fork's marketing site, asset archive, or monorepo apps exist here.
+
 ## Which skill to use
 
 - **Drafting a new deck** — use the `create-slide` skill. It walks through scoping questions, structure, and hand-off.

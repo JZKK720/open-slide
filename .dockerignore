@@ -1,0 +1,10 @@
+.git
+.turbo
+node_modules
+**/node_modules
+**/.next
+**/dist
+assets
+apps/demo/node_modules
+coverage
+pnpm-debug.log

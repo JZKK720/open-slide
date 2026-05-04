@@ -11,6 +11,12 @@ pnpm dev
 
 Then open the dev server and edit `slides/getting-started/index.tsx`, or create a new slide at `slides/<your-slide>/index.tsx`.
 
+## Branded forks
+
+This scaffold keeps the `open-slide` runtime, package ids, and CLI commands even when it is distributed from a branded fork.
+
+If your copy of the workspace adds repo-local guidance in `AGENTS.md` or `.agents/skills/`, treat that as additive direction for branding, assets, or deployment context rather than a signal to rename the runtime by default.
+
 ## Scripts
 
 | Command | Description |

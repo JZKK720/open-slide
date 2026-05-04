@@ -1,6 +1,7 @@
 'use client';
 
 import posthog from 'posthog-js';
+import { gitConfig } from '@/lib/shared';
 import { CopyCommand } from './copy-command';
 
 export function Hero() {
@@ -60,14 +61,14 @@ export function Hero() {
                 </span>
               </a>
               <a
-                href="https://github.com/1weiho/open-slide"
+                href={`https://github.com/${gitConfig.user}/${gitConfig.repo}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => posthog.capture('github_link_clicked', { location: 'hero' })}
                 className="group inline-flex items-center gap-2 h-[48px] sm:h-[52px] px-4 sm:px-5 rounded-[6px] border border-[color:var(--color-rule)] text-[14px] font-[family-name:var(--font-mono)] text-[color:var(--color-text)] hover:border-[color:var(--color-text)] transition"
               >
                 <GithubGlyph />
-                <span>1weiho/open-slide</span>
+                <span>{`${gitConfig.user}/${gitConfig.repo}`}</span>
                 <span
                   aria-hidden
                   className="text-[color:var(--color-muted)] group-hover:translate-x-0.5 transition-transform"

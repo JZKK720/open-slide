@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
-import { appName } from '@/lib/shared';
+import { siteUrl } from '@/lib/shared';
 import { getPageImage, source } from '@/lib/source';
 
 export const revalidate = false;
@@ -38,16 +38,23 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
     loadGoogleFont('Geist', 400),
     loadGoogleFont('Geist', 500),
     loadGoogleFont('JetBrains Mono', 500),
-    readFile(path.join(process.cwd(), 'public/open-slide.png')),
+    readFile(path.join(process.cwd(), 'public/brand/cubecloud-lockup.svg')),
   ]);
-  const logoSrc = `data:image/png;base64,${logoBuffer.toString('base64')}`;
+  const logoSrc = `data:image/svg+xml;base64,${logoBuffer.toString('base64')}`;
 
   const title = page.data.title;
   const description = page.data.description ?? 'A slide framework built for agents.';
   const breadcrumb = ['docs', ...page.slugs].join(' / ');
+  const siteHost = new URL(siteUrl).host;
 
   return new ImageResponse(
-    <Frame title={title} description={description} breadcrumb={breadcrumb} logoSrc={logoSrc} />,
+    <Frame
+      title={title}
+      description={description}
+      breadcrumb={breadcrumb}
+      logoSrc={logoSrc}
+      siteHost={siteHost}
+    />,
     {
       width: 1200,
       height: 630,
@@ -65,11 +72,13 @@ function Frame({
   description,
   breadcrumb,
   logoSrc,
+  siteHost,
 }: {
   title: string;
   description: string;
   breadcrumb: string;
   logoSrc: string;
+  siteHost: string;
 }) {
   return (
     <div
@@ -101,10 +110,10 @@ function Frame({
         }}
       />
 
-      {/* Eyebrow: logo mark + monospace caption */}
+      {/* Eyebrow: CubeCloud lockup + monospace caption */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
         {/* biome-ignore lint/performance/noImgElement: next/og uses Satori; <img> is the only supported image tag */}
-        <img src={logoSrc} width={48} height={48} alt="" style={{ borderRadius: 8 }} />
+        <img src={logoSrc} width={180} height={67} alt="" />
         <div
           style={{
             fontFamily: 'JetBrains Mono',
@@ -117,8 +126,6 @@ function Frame({
             gap: 14,
           }}
         >
-          <span style={{ color: INK }}>{appName}</span>
-          <span style={{ color: RULE }}>·</span>
           <span>Docs</span>
         </div>
       </div>
@@ -202,7 +209,7 @@ function Frame({
           <span>{breadcrumb}</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ color: INK }}>open-slide.dev</span>
+          <span style={{ color: INK }}>{siteHost}</span>
           <span style={{ color: RULE }}>↗</span>
         </div>
       </div>
